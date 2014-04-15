@@ -1,0 +1,53 @@
+package com.thinkjs.io;
+
+import edu.princeton.cs.introcs.StdIn;
+
+public class QueueLinkedList<Item> {
+	private node first;
+	private node last;
+	private int n;
+	private class node{
+		Item item;
+		node next;
+	}
+	
+	public boolean isEmpty() { return(n == 0);}
+	
+	public int size() { return n;}
+	
+	public void enqueue(Item item){
+		node oldlast = last;
+		last = new node();
+		last.item = item;
+		last.next = null;
+		oldlast.next = last;
+		if(isEmpty()){
+			first = last;
+		}
+		n++;
+	}
+	
+	public string dequeue(){
+		Item item = first.item;
+		first = first.next;
+		if(isEmpty())
+			last = null;
+		n--;
+		return item;
+	}
+
+	public static void main(String[] args) {
+		QueueLinkedList<String> q = new QueueLinkedList<String>();
+		while(!StdIn.isEmpty()){
+			String item = StdIn.readString();
+			if(!item.equals("-")){
+				q.enqueue(item);
+			}
+			else{
+				System.out.println("Dequed item is "+q.dequeue());
+			}
+		}
+
+	}
+
+}

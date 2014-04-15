@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;BinarySearch&apos; to &apos;AlgsChap1-BinarySearch-Stacks,Queues&apos;" description="Rename resource &apos;BinarySearch&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/BinarySearch" name="AlgsChap1-BinarySearch-Stacks,Queues" stamp="1397301148532" updateReferences="true"/>
+</session>

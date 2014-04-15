@@ -1,0 +1,15 @@
+package com.thinkjs.io;
+
+import edu.princeton.cs.introcs.In;
+
+public class ThreeSumFast {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		In in = new In(args[0]);
+	}
+
+}

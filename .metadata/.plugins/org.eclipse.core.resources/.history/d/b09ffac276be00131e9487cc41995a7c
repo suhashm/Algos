@@ -1,0 +1,29 @@
+package com.thinkjs.io;
+import java.util.Arrays;
+
+public class BinarySearchRecursive {
+
+	public static int search(int lo, int hi, int key, int[] a){
+		if(lo > hi) return -1;
+		int mid = lo + (hi-lo)/2;
+		if(key < a[mid]) return search(lo, mid-1, key, a);
+		else if(key > a[mid]) return search(mid+1, hi, key, a);
+		else return mid;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] a = {34, 22, 156, 11, 76};
+		int lo = 0;
+		int hi = a.length - 1;
+		int key = 11;
+		Arrays.sort(a);
+		int pos = search(lo, hi, key , a);
+		if(pos == -1){
+			System.out.println("Key not found");
+		}else{
+			System.out.println("Key found at pos "+pos);
+		}
+	}
+
+}
