@@ -1,0 +1,50 @@
+package com.thinkjs.io;
+
+public class HeapSort {
+
+	public boolean less(Comparable[] v,int a, int b){
+		if(v[a]!=null && v[b]!=null)
+			return v[a].compareTo(v[b])<0;
+		return false;
+	}
+	
+	public void exch(Comparable[] v,int a, int b){
+		Comparable t =v[a];
+		v[a] = v[b];
+		v[b] = t;
+	}
+	
+	public void sink(Comparable[] a, int k, int n){
+		while(2*k<=n){
+			int j = 2*k;
+			if(j<n && less(a, j,j+1)) j++;
+			if(!less(a,k,j)) break;
+			exch(a,k,j);
+			k = j;
+		}
+	}
+	
+	public void Sort(Comparable[] a){
+		int n = a.length-1;
+		for(int k=n/2; k>=1;k--){
+			sink(a,k,n); //heapified
+		}
+		while(n>1){
+			exch(a,1,n--);
+			sink(a, 1 , n);
+		}
+		System.out.print("Sorted Array is ");
+		for(int i=1;i<a.length;i++){
+			System.out.print(a[i]+" ");
+		}
+	}
+	
+	public static void main(String[] args) {
+	
+		HeapSort hs = new HeapSort();
+		String[] a = {null, "a","z", "e","c"};
+		hs.Sort(a);
+		
+	}
+
+}

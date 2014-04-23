@@ -1,0 +1,22 @@
+package com.thinkjs.io;
+
+public class MaxPriorityQueue<key extends Comparable<key>> {
+
+	private static Comparable[] pq;
+	
+	private static boolean less(int i, int j){
+		return pq[i].compareTo(pq[j])<0;
+	}
+	
+	private static void exch(int i, int j){
+		key t = pq[i];
+		pq[i] = pq[j];
+		pq[j] = t;
+	}
+	
+	public static void main(String[] args) {
+	
+
+	}
+
+}

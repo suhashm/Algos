@@ -1,0 +1,14 @@
+package com.thinkjs.io;
+
+public class HeapSort {
+
+	public boolean less(Comparable[] v,int a, int b){
+		return v[a].compareTo(v[b])<0;
+	}
+	
+	public static void main(String[] args) {
+	
+
+	}
+
+}

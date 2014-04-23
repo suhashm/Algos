@@ -1,0 +1,63 @@
+package com.thinkjs.io;
+
+public class MaxPriorityQueue<key extends Comparable<key>> {
+
+	private key[] pq;
+	private int n = 0;
+	
+	private boolean less(int i, int j){
+		return pq[i].compareTo(pq[j])<0;
+	}
+	
+	private void exch(int i, int j){
+		key t = pq[i];
+		pq[i] = pq[j];
+		pq[j] = t;
+	}
+	
+	private void swim(int k){
+		while(k<=n && less(k/2,k)){
+			exch(k/2, k);
+			k/=2;
+		}
+	}
+	
+	private void sink(int k){
+		while(2*k<=n){
+			int j = 2*k;
+			if(j<n && less(j,j+1)) j++;
+			if(!less(k,j)) break;
+			exch(k,j);
+			k=j;
+		}
+	}
+	
+	public boolean isEmpty(){
+		return n == 0;
+	}
+	
+	public void insert(key item){
+		pq[++n] = item;
+		swim(n);
+	}
+	
+	public key delMax(){
+		key max = pq[1];
+		exch(1,n--);
+		pq[n+1] = null;
+		sink(1);
+		return max;
+	}
+	
+	public void show(){
+		for(int i=0; i<pq.length;i++){
+			System.out.print(pq[i]+" ");
+		}
+	}
+	
+	public static void main(String[] args) {
+	MaxPriorityQueue<Comparable<int>> maxPQ = new MaxPriorityQueue<>[5];
+
+	}
+
+}
